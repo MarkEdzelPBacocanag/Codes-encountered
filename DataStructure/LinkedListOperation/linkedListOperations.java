@@ -1,5 +1,11 @@
 import java.util.*;
 
+//linkedLists is a static way in calling them from another class
+//Instead of creating a new object
+//Called them in a static way
+//ex: "linkedLists".insertAtBeginning
+//linkedLists is the name of the class
+
 public class linkedListOperations {
     @SuppressWarnings("ConvertToTryWithResources")
     public static void main(String[] args) {
