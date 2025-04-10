@@ -48,7 +48,7 @@ public class linkedListOperations {
 
             for(i = currentIteration; i < count;){
 
-                System.out.println("\nList[" + ++currentIteration + "]: ");
+                System.out.print("\nList[" + ++currentIteration + "]: ");
                 //Calling insertAtBeginning in the linked list
                 linkedLists.insertAtBeginning(uInput.nextInt());
                 break;
