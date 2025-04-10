@@ -12,26 +12,20 @@ public class linkedListOperations {
 
         //for User inputs 
         Scanner uInput = new Scanner(System.in);
-        int count, i = 0, key, option; 
+        int count = 0, i = 0, key, option; 
 
         //saves current iteration count
         int currentIteration = i;
 
         //Asks for User's max List limits
-        System.out.println("Max list 10 minimum of 5.");
-        System.out.print("How many list do you want to add?: ");
-        count = Integer.parseInt(uInput.nextLine());
-
         //This limits on how many lists the User can add
-        do{            
-            if (count < 5 || count > 10){
-
-            System.out.println("5 to 10 lists limit only!");
-
-            }
-
-            System.out.print("How many list do you want to add?: ");
+        System.out.println("Max list 10 minimum of 5.");
+        System.out.print("How many lists you want to add?: ");
+        do{     
             count = Integer.parseInt(uInput.nextLine());
+            if (count < 5 || count > 10) {
+                System.out.println("Invalid input! Please enter a number between 5 and 10.");
+            }
 
         }while(count < 5 || count > 10);
 

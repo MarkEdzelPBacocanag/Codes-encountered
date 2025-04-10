@@ -1,5 +1,4 @@
-
-
+import java.util.*;
 class linkedLists {
 
     static class node{
@@ -89,6 +88,17 @@ class linkedLists {
         if(temp != null && temp.data == key){
 
             head = temp.next;
+
+            System.out.println("""
+            
+            Element found!
+            
+            Deleting Element...
+            Element Deleted!
+            Element list updated!
+            
+            """ + displayLists());
+                waitForEnter();
             return;
 
         }
@@ -97,15 +107,9 @@ class linkedLists {
 
             prev = temp;
             temp = temp.next;
-            System.out.println("""
-                               
-                               Deleted Element
-                               Updated Element list
-                               
-                               """
-            );
 
         }
+
         //If the key is not present
         if(temp == null){
             System.out.println("\nNot found in the Element list!");
@@ -120,8 +124,15 @@ class linkedLists {
 
     }
 
+    // Waits for the user to press Enter
+    @SuppressWarnings("ConvertToTryWithResources")
+    static void waitForEnter() {
+        System.out.println("\nPress Enter to continue...");
+        Scanner uInput = new Scanner(System.in);
+        uInput.nextLine();
+        uInput.close();
+    }
 }
-
 
 /* This is an insert at end list {not included} !please ignore!
     static void insertAtEnd(int data){
