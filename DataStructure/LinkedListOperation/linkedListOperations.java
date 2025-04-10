@@ -17,13 +17,18 @@ public class linkedListOperations {
         count = Integer.parseInt(uInput.nextLine());
 
         //This limits on how many lists the User can add
-        if(count >= 5 && count <= 10){
-
-        }else{
+        do{            
+            if (count < 5 || count > 10){
 
             System.out.println("5 to 10 lists limit only!");
 
-        }
+            }
+
+            System.out.print("How many list do you want to add?: ");
+            count = Integer.parseInt(uInput.nextLine());
+
+        }while(count < 5 || count > 10);
+
         do{
                 //User's Option in the program
                 System.out.println("""
