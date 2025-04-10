@@ -11,7 +11,7 @@ public class linkedListOperations {
         //saves current iteration count
         int currentIteration = i;
 
-        //Asks for User's max List limits/*  */
+        //Asks for User's max List limits
         System.out.println("Max list 10 minimum of 5.");
         System.out.print("How many list do you want to add?: ");
         count = Integer.parseInt(uInput.nextLine());
