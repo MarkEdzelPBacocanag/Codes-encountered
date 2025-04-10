@@ -89,8 +89,7 @@ public class linkedListOperations {
         }
 
     }while(option != 0);
-
-
+        //close the scanner
         uInput.close();
     }
 }
