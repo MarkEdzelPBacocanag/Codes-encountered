@@ -24,8 +24,14 @@ public class Textgame {
             \n\tPress Enter to continue...
             \t[0] Quit Game
                     """, 125);
-        String userChoice = uInput.nextLine(); // Wait for user to press Enter 
 
+        String userChoice = uInput.nextLine(); // Wait for user to press Enter 
+        do{
+        if(!userChoice.isEmpty()){
+            System.out.println("Invalid input! Please press Enter to continue.");
+        }
+        userChoice = uInput.nextLine(); // Wait for user to press Enter
+    }while(!userChoice.isEmpty()); // Loop until Enter is pressed
     //Options Functions
     switch(userChoice){
 
