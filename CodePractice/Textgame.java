@@ -20,7 +20,7 @@ public class Textgame {
         the outcome of the game.
         """);
 
-        printDelay("""
+        TextGameStats.printDelay("""
             \n\tPress Enter to continue...
             \t[0] Quit Game
                     """, 125);
@@ -38,12 +38,12 @@ public class Textgame {
             switch(quitInput){
 
                 case 0 -> {
-                    printDelay("Thanks for playing! <3", 200);
+                    TextGameStats.printDelay("Thanks for playing! <3", 200);
                     System.exit(0);
 
                 }
                 default -> {
-                    printDelay("Continue...\n", 125);
+                    TextGameStats.printDelay("Continue...\n", 125);
                 }
 
             }
@@ -77,41 +77,29 @@ public class Textgame {
 
     }
 }while(characterClass < 1 || characterClass > 4);
-    printDelay("Press Enter to continue...", 125);
+
+    TextGameStats.printDelay("Press Enter to continue...", 125);
     uInput.nextLine();
     //Profile
 
         System.out.printf("""
             Profile Summary
             Username: """ + userName + 
-            "\nClass: " +  cClass(characterClass) + 
+            "\nClass: " +  TextGameStats.cClass(characterClass) + 
             "\n");
+TextGameStats.printDelay("\nPress Enter to continue...", 125);
+uInput.nextLine();
 
+    System.out.println("""
+            [1] Display Stats
+            [2] View Level
+            [3] Start Game
+            [4] Exit Game
+            """);
+    System.out.print("Choose an option: ");
+    int option = uInput.nextInt();
+    TextGameStats.settings(option, characterClass);
+    
     uInput.close(); // Close the scanner to prevent resource leaks
-    }
-
-    //Delays the next Print of text
-    static void printDelay(String text, int delay) {
-        for (char c : text.toCharArray()) {
-            System.out.print(c);
-            try {
-                Thread.sleep(delay); // Delay in milliseconds
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt(); // Restore the interrupted status
-            }
-        }
-    }
-
-    //Class
-    static String cClass(int charClass){
-        
-        StringBuilder string = new StringBuilder();
-        switch (charClass) {
-            case 1 -> string.append("Warrior");
-            case 2 -> string.append("Mage");
-            case 3 -> string.append("Archer");
-            case 4 -> string.append("Rogue");
-        }
-        return string.toString();
-    }       
-}
+        }//End of main method
+    }//End of TextGame class
