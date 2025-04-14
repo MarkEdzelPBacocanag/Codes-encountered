@@ -1,0 +1,177 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.IO;
+
+namespace BacocanagSemifinalActivity2
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private string path = @"Z:\II106\BACOCANAG, Mark Edzel P\3_Semifinal\BacocanagSemifinalActivity2\Student_Record.txt";
+
+        private void textBoxIdNumber_TextChanged(object sender, EventArgs e)
+        {
+            string textbox = textBoxIdNumber.Text;
+            bool numbers = textbox.All(char.IsDigit);
+            if (numbers)
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Please enter numbers only!");
+            }
+        }
+
+        private void textBoxFirtName_TextChanged(object sender, EventArgs e)
+        {
+            string textbox = textBoxFirtName.Text;
+            bool numbers = textbox.All(c => char.IsLetter(c) || c == ' ');
+            if (numbers)
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Special Characters is not allowed!");
+            }
+        }
+
+        private void textBoxLastName_TextChanged(object sender, EventArgs e)
+        {
+            string textbox = textBoxLastName.Text;
+            bool numbers = textbox.All(char.IsLetterOrDigit);
+            if (numbers)
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Special Characters is not allowed!");
+            }
+        }
+
+        private void textBoxMiddleName_TextChanged(object sender, EventArgs e)
+        {
+            string textbox = textBoxMiddleName.Text;
+            bool numbers = textbox.All(char.IsLetterOrDigit);
+            if (numbers)
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Special Characters is not allowed!");
+            }
+        }
+
+        private void textBoxCourse_TextChanged(object sender, EventArgs e)
+        {
+            string textbox = textBoxCourse.Text;
+            bool numbers = textbox.All(char.IsLetterOrDigit);
+            if (numbers)
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Special Characters is not allowed!");
+            }
+        }
+
+        private void textBoxYearLevel_TextChanged(object sender, EventArgs e)
+        {
+            string textbox = textBoxYearLevel.Text;
+            bool numbers = textbox.All(char.IsDigit);
+            if (numbers)
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Please enter numbers only!");
+            }
+        }
+
+        private void dateBirthday_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSubmit_Click(object sender, EventArgs e)
+        {
+            bool result;
+            result = String.IsNullOrEmpty(textBoxFirtName.Text);
+            result = String.IsNullOrEmpty(textBoxLastName.Text);
+            result = String.IsNullOrEmpty(textBoxCourse.Text);
+            result = String.IsNullOrEmpty(textBoxYearLevel.Text);
+
+
+            String fileRecord ="\n\nId Number: " + textBoxIdNumber.Text +
+                                "\nFirst Name: " + textBoxFirtName.Text +
+                                "\nLast Name: " + textBoxLastName.Text +
+                                "\nMiddle Name: " + textBoxMiddleName.Text + 
+                                "\nCourse: " + textBoxCourse.Text + 
+                                "\nYear Level: " + textBoxYearLevel.Text +
+                                "\nBirthday: " + dateBirthday.Value;
+                                                
+            File.AppendAllText(path,fileRecord + Environment.NewLine);
+            if (result)
+            {
+                MessageBox.Show("Fill the boxes");
+            } else {
+                MessageBox.Show("Added To Text File!");
+                Close();
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            string recordToDelete = textBoxIdNumber.Text.Trim();
+            if (string.IsNullOrEmpty(recordToDelete))
+            {
+                MessageBox.Show("Please enter the record to delete.");
+                return;
+            }
+
+            if (!File.Exists(path))
+            {
+                MessageBox.Show("File not found!");
+                return;
+            }
+
+            try
+            {
+                // Read all lines from the file.
+                string[] lines = File.ReadAllLines(path);
+                // Filter out the lines matching the record to delete.
+                string[] updatedLines = lines.Where(line =>
+                    !line.Trim().Equals(recordToDelete, StringComparison.OrdinalIgnoreCase))
+                    .ToArray();
+                // Write the updated list of records back to the file.
+                File.WriteAllLines(path, updatedLines);
+                MessageBox.Show("Record deleted successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred during deletion: " + ex.Message);
+            }
+        }
+    }
+}
