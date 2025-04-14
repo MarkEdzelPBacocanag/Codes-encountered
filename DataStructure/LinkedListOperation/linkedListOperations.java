@@ -32,20 +32,20 @@ public class linkedListOperations {
         do{
                 //User's Option in the program
                 System.out.println("""
-                                   
-                                   [1] Insert an Element(Beginning)
-                                   [2] Delete an Element(Beginning)
-                                   [3] Display All Elements
-                                   [4] Search an Element
-                                   [5] Delete an Element
-                                   [0] Terminate Program""");
+                                [0] Terminate Program
+                                [1] Insert an Element(Beginning)
+                                [2] Delete an Element(Beginning)
+                                [3] Display All Elements
+                                [4] Search an Element
+                                [5] Delete an Element
+                                """);
         System.out.print("Choose Option: ");
         option = uInput.nextInt();
 
         //Options Functions
         switch(option){
             case 0 -> {
-
+                System.out.println("Program Terminated!");
                 System.exit(0);
 
             }
