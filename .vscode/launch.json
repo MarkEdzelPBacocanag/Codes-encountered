@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "AddressBook",
+            "request": "launch",
+            "mainClass": "AddressBook",
+            "projectName": "Codes-encountered_dd77e2ac"
+        },
+        {
+            "type": "java",
+            "name": "Person",
+            "request": "launch",
+            "mainClass": "Person",
+            "projectName": "Codes-encountered_dd77e2ac"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
